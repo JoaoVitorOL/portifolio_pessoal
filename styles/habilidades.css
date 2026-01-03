@@ -60,6 +60,7 @@
 
 .main-conteudo {
     display: flex;
+    align-items: center;
     flex-direction: column;
     gap: 4%;
   }
@@ -71,7 +72,6 @@
   font-family: var(--text-fonte-2);
   text-wrap: wrap;
   width: 45%;
-  margin-left: 30%;
   text-align: justify;
   line-height: 1.3em;
   margin-bottom: 1%;
@@ -84,7 +84,7 @@
 
 
 #disciplinas {
-  margin: 2% 0% 1% 40%;
+  margin: 2% 0% 1% 0%;
   width: fit-content;
 }
 
@@ -148,7 +148,6 @@
 .materias {
     width: fit-content;
     gap: 16px;
-    margin-left: 30%;
     margin-bottom: 4.3%;
     flex-wrap: wrap;
     max-width: 45%;
@@ -175,7 +174,6 @@
 .videos-container {
   display: flex;
   flex-wrap: wrap;
-  margin-left: 19%;
   max-width: 65%;
   gap: 2%;
   margin-top: 3%;
@@ -268,15 +266,10 @@
   
   .videos-container {
     max-width: 100%;
-    margin-left: 14%;
 
   }
 
 
-  #disciplinas {
-    margin-left: 30%;
-
-  }
 }
 
 /* ============================================================================================================================= */
@@ -289,40 +282,31 @@
 
   .main-titulo {
     max-width: fit-content;
-    margin-left: 14%;
+ 
   }
-
-  .main-gif {
-    margin-left: 28%;
-  }
-
   .main-aside {
     width: 65%;
-    margin-left: 11%;
 
   }
 
 
   .main-conteudo p {
-    margin-left: 11%;
     line-height: 1.2em;
-    width: 64%
+    width: 74%
   }
 
   #disciplinas {
-    margin: 5% 0% 3% 10%;
-    width: 45%;
+    margin: 5% 0% 3% 0%;
+    width: 55%;
   }
 
 
   .materias {
     gap: 8px;
-    margin-left: 9%;
-    max-width: 70%;
+    max-width: 75%;
   }
 
   .videos-container {
-    margin-left: 2.5%;
     width: 100%;
 
   }
