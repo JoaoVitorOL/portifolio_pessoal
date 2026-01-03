@@ -276,9 +276,6 @@
 
 @media (max-width: 685px) {
 
-  .main {
-    align-items: unset;
-  }
 
   .main-titulo {
     max-width: fit-content;
