@@ -1,25 +1,29 @@
-/**
- * Carrega uma página interna na área de conteúdo.
- * @param {string} nomePagina - Nome da página sem extensão.
- */
-function carregarPagina(nomePagina) {
-    fetch(`${nomePagina}.html`)
+const pageCache = {};
+let paginaAtual = null;
+
+function carregarPagina(caminhoPagina) {
+    if (paginaAtual === caminhoPagina) {
+        return; // evita reload da mesma página
+    }
+
+    if (pageCache[caminhoPagina]) {
+        document.getElementById("conteudo").innerHTML = pageCache[caminhoPagina];
+        paginaAtual = caminhoPagina;
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+    }
+
+    fetch(`${caminhoPagina}.html`)
         .then(r => {
-            if (!r.ok) {
-                throw new Error("Página não encontrada");
-            }
+            if (!r.ok) throw new Error("Página não encontrada");
             return r.text();
         })
         .then(html => {
+            pageCache[caminhoPagina] = html;
             document.getElementById("conteudo").innerHTML = html;
+            paginaAtual = caminhoPagina;
 
-            // Força o scroll para o topo
-            window.scrollTo({
-                top: 0,
-                left: 0,
-                behavior: "smooth"
-            });
-
+            window.scrollTo({ top: 0, behavior: "smooth" });
         })
         .catch(err => {
             document.getElementById("conteudo").innerHTML =
@@ -27,6 +31,6 @@ function carregarPagina(nomePagina) {
             console.error(err);
         });
 }
-
+ 
 // Carrega a página inicial ao abrir o site
 document.addEventListener("DOMContentLoaded", () => carregarPagina("../pages/habilidades"));
