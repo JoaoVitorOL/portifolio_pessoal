@@ -13,6 +13,7 @@
 
     --text-fonte-1: 'Open Sans', sans-serif;
     --text-fonte-2: 'Merriweather', serif;
+    --text-fonte-3: 'Source Sans 3', sans-serif;
 
 }
 
@@ -34,16 +35,13 @@
 
 .main-texto {
     font-size: clamp(0.7rem, 0.9vw, 0.85rem);
-    /* color: var(--text-color); */
     font-family: var(--text-fonte-1);
     text-wrap: wrap;
     width: 45%;
-    /* margin-left: 30%; */
-    /* text-align: justify; */
-    /* line-height: 1.3em; */
     margin-top: 2% ;
     margin-left: 9% ;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    line-height: 1.2em;
 
 }
 
@@ -68,20 +66,38 @@
     margin-top: 5%;
 }
 
+.conteudo {
+  display: flex;
+  margin-top: 10px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .conteudo strong {
+  margin-top: 4%;
+  margin-bottom: 1%;
   color: var(--topico-color);
+  font-family: var(--text-fonte-3);
+  font-weight: 200;
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+
+}
+
+.conteudo a {
+  margin-top: 3%;
+
 }
 
 .experiencia {
   border: 1px solid #ccc;
   border-radius: 6px;
-  padding: 10px;
-  margin: 3%;
-  max-width: 700px;
+  padding: 20px;
+  max-width: 600px;
 }
 
 .experiencia summary {
     font-weight: bold;
+    font-family: var(--text-fonte-2);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -103,8 +119,38 @@
   content: " ▲";
 }
 
-.conteudo {
-  margin-top: 10px;
+.conteudo-pdf {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  margin-top: 0.5rem;
+  padding: 0.6rem 1rem;
+
+  font-family: var(--font-subtitulo, sans-serif);
+  font-size: 0.9rem;
+  font-weight: 500;
+
+  color: #2c3e50;
+  background-color: #eaf2f1;
+
+  border: 1px solid #c9dcdc;
+  border-radius: 6px;
+
+  text-decoration: none;
+  cursor: pointer;
+
+  transition: background-color 0.2s ease,
+              transform 0.1s ease;
+}
+
+.conteudo-pdf:hover {
+  background-color: #dfeceb;
+  transform: translateY(-1px);
+}
+
+.conteudo-pdf:active {
+  transform: translateY(0);
 }
 
 

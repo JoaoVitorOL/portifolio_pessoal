@@ -3,6 +3,7 @@ let paginaAtual = null;
 
 function carregarPagina(caminhoPagina) {
     if (paginaAtual === caminhoPagina) {
+        window.scrollTo({ top: 0, behavior: "smooth" });
         return; // evita reload da mesma página
     }
 
@@ -13,8 +14,9 @@ function carregarPagina(caminhoPagina) {
         return;
     }
 
+    // You are passing a callback that will run later, when the Promise resolves. .then(r => r.text()) // passes a function
     fetch(`${caminhoPagina}.html`)
-        .then(r => {
+        .then(r => {            
             if (!r.ok) throw new Error("Página não encontrada");
             return r.text();
         })
