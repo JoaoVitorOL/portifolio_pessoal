@@ -12,5 +12,5 @@ function carregarComponente(targetId, path) {
 
 document.addEventListener("DOMContentLoaded", () => {
     carregarComponente("header", "../pages/header.html");
- //*   carregarComponente("footer", "components/footer.html"); *//
+    carregarComponente("footer", "../pages/footer.html"); 
 });

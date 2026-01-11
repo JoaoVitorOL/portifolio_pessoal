@@ -1,0 +1,19 @@
+/* Footer
+============================================================================================================================= */
+
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 10vh;
+  width: 100%;
+
+  background-color: var(--header-color);
+}
+
+
+#conteudo {
+  flex: 1;   /* Empurra footer para o fundo*/
+}
