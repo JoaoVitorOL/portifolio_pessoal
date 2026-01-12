@@ -6,19 +6,22 @@
  * @param {string} path - Caminho do arquivo HTML
  * @returns {Promise<void>}
  */
-export function carregarComponente(targetId, path) {
-    return fetch(path)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Erro ao carregar ${path}`);
-            }
-            return response.text();
-        })
-        .then(html => {
-            const target = document.getElementById(targetId);
-            if (!target) {
-                throw new Error(`Elemento #${targetId} não encontrado`);
-            }
-            target.innerHTML = html;
-        });
+
+import { applySavedLanguage } from "./i18n.js";
+
+export async function carregarComponente(targetId, path) {
+  const response = await fetch(path);
+  if (!response.ok) {
+    throw new Error(`Erro ao carregar ${path}`);
+  }
+
+  const html = await response.text();
+  const target = document.getElementById(targetId);
+  if (!target) {
+    throw new Error(`Elemento #${targetId} não encontrado`);
+  }
+
+  target.innerHTML = html;
+  applySavedLanguage();
 }
+

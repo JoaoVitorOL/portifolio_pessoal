@@ -1,5 +1,6 @@
 
 import { setLanguage } from "./i18n.js";
+import { applySavedLanguage } from "./i18n.js";
 
 
 const pageCache = {};
@@ -12,11 +13,15 @@ function carregarPagina(caminhoPagina) {
     }
 
     if (pageCache[caminhoPagina]) {
-        document.getElementById("conteudo").innerHTML = pageCache[caminhoPagina];
-        paginaAtual = caminhoPagina;
-        window.scrollTo({ top: 0, behavior: "smooth" });
-        return;
-    }
+           document.getElementById("conteudo").innerHTML = pageCache[caminhoPagina];
+           paginaAtual = caminhoPagina;
+       
+           applySavedLanguage();
+
+       
+           window.scrollTo({ top: 0, behavior: "smooth" });
+           return;
+       }
 
     // You are passing a callback that will run later, when the Promise resolves. .then(r => r.text()) // passes a function
     fetch(`${caminhoPagina}.html`)
@@ -39,11 +44,12 @@ function carregarPagina(caminhoPagina) {
            document.getElementById("conteudo").innerHTML = html;
            paginaAtual = caminhoPagina;
 
-           const lang = localStorage.getItem("lang") || "pt";
-           setLanguage(lang);
+           applySavedLanguage();
+       
 
            window.scrollTo({ top: 0, behavior: "smooth" });
        })
+       
 
         .catch(err => {
             document.getElementById("conteudo").innerHTML =

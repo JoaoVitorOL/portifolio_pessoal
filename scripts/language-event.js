@@ -1,13 +1,13 @@
 import { carregarComponente } from "./component-loader.js";
-import { setLanguage } from "./i18n.js";
+import { setLanguage, syncLanguageSelect } from "./i18n.js";
 
 
 document.addEventListener("DOMContentLoaded", async () => {
     await carregarComponente("header", "../pages/header.html");
     await carregarComponente("footer", "../pages/footer.html");
 
-    const lang = localStorage.getItem("lang") || "pt";
-    setLanguage(lang);
+    syncLanguageSelect();
+
 });
 
 
