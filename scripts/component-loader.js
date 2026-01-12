@@ -1,16 +1,24 @@
 /**
  * Insere componentes HTML externos em elementos da página.
- * @param {string} targetId - ID do elemento alvo.
- * @param {string} path - Caminho do arquivo HTML parcial.
+ * Retorna uma Promise para permitir await.
+ *
+ * @param {string} targetId - ID do elemento alvo
+ * @param {string} path - Caminho do arquivo HTML
+ * @returns {Promise<void>}
  */
-function carregarComponente(targetId, path) {
-    fetch(path)
-        .then(r => r.text())
-        .then(html => document.getElementById(targetId).innerHTML = html)
-        .catch(err => console.error("Erro ao carregar componente:", err));
+export function carregarComponente(targetId, path) {
+    return fetch(path)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Erro ao carregar ${path}`);
+            }
+            return response.text();
+        })
+        .then(html => {
+            const target = document.getElementById(targetId);
+            if (!target) {
+                throw new Error(`Elemento #${targetId} não encontrado`);
+            }
+            target.innerHTML = html;
+        });
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-    carregarComponente("header", "../pages/header.html");
-    carregarComponente("footer", "../pages/footer.html"); 
-});

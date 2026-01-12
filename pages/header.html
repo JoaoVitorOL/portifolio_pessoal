@@ -6,34 +6,36 @@
 
    <nav class="header-nav">
 
-      <img class="header-nav-imagem" src="../assets/foto.jpg" alt="foto do dono do Portifólio" >
+      <img class="header-nav-imagem" src="/assets/foto.jpg" alt="foto do dono do Portifólio" >
 
       <div class="header-nav-links">
 
-         <a onclick="carregarPagina('../pages/experiencia')">
+      
+         <a onclick="carregarPagina('/pages/experiencia')">
             <span>
-               <img class="header-svg" src="../assets/svg/maleta.svg">
+               <img class="header-svg" src="/assets/svg/maleta.svg">
             </span>
-            Experiência
+            <span data-i18n="header.experiencia">Experiência</span>
          </a>
 
-         <a onclick="carregarPagina('../pages/habilidades')">
+         <a onclick="carregarPagina('/pages/habilidades')">
             <span>
-               <img class="header-svg" src="../assets/svg/gear.svg">
+               <img class="header-svg" src="/assets/svg/gear.svg">
             </span>
-            Habilidades</a>
+            <span data-i18n="header.habilidades">Habilidades</span>
   
-         <a onclick="carregarPagina('../pages/contatos')">
+         <a onclick="carregarPagina('/pages/contatos')">
             <span>
-               <img class="header-svg" src="../assets/svg/telefone.svg">
+               <img class="header-svg" src="/assets/svg/telefone.svg" >
             </span>
-            Contatos</a>
+            <span data-i18n="header.contatos">Contatos</span>
+         </a>
 
-         <a onclick="carregarPagina('../pages/sobremim')">
+         <a onclick="carregarPagina('/pages/sobremim')">
             <span>
-               <img class="header-svg" src="../assets/svg/pessoa.svg">
+               <img class="header-svg" src="/assets/svg/pessoa.svg" >
             </span>
-            Sobre mim
+            <span data-i18n="header.sobremim">Sobre mim</span>
          </a>
 
       </div>
@@ -42,22 +44,22 @@
 
         <a href="https://github.com/JoaoVitorOL?tab=repositories" target="_blank">
          <span title="GitHub">
-           <img class="header-github-svg" src="../assets/svg/github.svg">
+           <img class="header-github-svg" src="/assets/svg/github.svg">
          </span>
         </a>
 
         <a href="https://www.linkedin.com/in/joãovitordeoliveira-lima" target="_blank">
          <span title="Linkedin">
-             <img class="header-linkedin-svg" src="../assets/svg/linkedin.svg">
+             <img class="header-linkedin-svg" src="/assets/svg/linkedin.svg">
          </span>
         </a>
 
         <div class="header-nav-profissional-idioma">
-            <img class="header-svg" src="../assets/svg/globo.svg">
+            <img class="header-svg" src="/assets/svg/globo.svg">
 
-            <select name="idiomas" id="idiomas">
-             <option value="pt">PT-BR</option>
-             <option value="en">EN</option>
+            <select name="idiomas" id="idiomas-select">
+              <option value="pt">PT-BR</option>
+              <option value="en">EN</option>
             </select>
 
          </div>

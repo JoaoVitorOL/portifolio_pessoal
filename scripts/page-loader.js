@@ -1,3 +1,7 @@
+
+import { setLanguage } from "./i18n.js";
+
+
 const pageCache = {};
 let paginaAtual = null;
 
@@ -20,13 +24,27 @@ function carregarPagina(caminhoPagina) {
             if (!r.ok) throw new Error("Página não encontrada");
             return r.text();
         })
+
+        /*
         .then(html => {
             pageCache[caminhoPagina] = html;
             document.getElementById("conteudo").innerHTML = html;
             paginaAtual = caminhoPagina;
 
             window.scrollTo({ top: 0, behavior: "smooth" });
-        })
+        }) */
+
+        .then(html => {
+           pageCache[caminhoPagina] = html;
+           document.getElementById("conteudo").innerHTML = html;
+           paginaAtual = caminhoPagina;
+
+           const lang = localStorage.getItem("lang") || "pt";
+           setLanguage(lang);
+
+           window.scrollTo({ top: 0, behavior: "smooth" });
+       })
+
         .catch(err => {
             document.getElementById("conteudo").innerHTML =
                 "<p>Erro ao carregar página.</p>";
@@ -36,3 +54,6 @@ function carregarPagina(caminhoPagina) {
  
 // Carrega a página inicial ao abrir o site
 document.addEventListener("DOMContentLoaded", () => carregarPagina("../pages/habilidades"));
+
+window.carregarPagina = carregarPagina;
+
